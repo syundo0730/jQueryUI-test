@@ -9,32 +9,23 @@
 </head>
 <body>
   
-  <div id = "tabs">
-    
-    <ul>
-      <li><a href = "#menu1">Menu1</a></li>
-      <li><a href = "#menu2">Menu2</a></li>
-      <li><a href = "#menu3">Menu3</a></li>
-    </ul>
-
-    <div id = "menu1">menu1</div>
-    <div id = "menu2">menu2</div>
-    <div id = "menu3">menu3</div>
-    
-  </div>
+  <div id = "box">box</div>
   
   <style>
-    .ui-selected{
-    background:red;
+    #box{
+    width:100px;
+    height:100px;
+    background:green;
     }
   </style>
   
   <script>
     $(function() {
-    $('#tabs').tabs({
-    active:1
+    $('#box').click(function(){
+    $(this).effect("explode", {
+    pieces:100
     });
-    
+    });    
     });
   </script>
 </body>
