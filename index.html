@@ -9,9 +9,8 @@
 </head>
 <body>
   
-  <button>Open</button>
-
-  <div id = "msg">こんにちわ</div>
+  <div id = "bar"></div>
+  <div id = "slider"></div>
   
   <style>
     .ui-selected{
@@ -21,19 +20,15 @@
   
   <script>
     $(function() {
-    $('button').click(function(){
-    $('#msg').dialog('open');
+    $('#bar').progressbar({
+    value:33
     });
-    $('#msg').dialog({
-    autoOpen:false,
-    buttons:{
-    "OK":function(){
-    $(this).dialog('close');
+    $('#slider').slider({
+    slide:function(event, ui){
+    console.log(ui.value);
+    $('#bar').progressbar('option', 'value', ui.value);
     }
-    },
-    title:"title",
-    modal:true
-    })
+    });
     });
   </script>
 </body>
