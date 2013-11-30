@@ -9,8 +9,19 @@
 </head>
 <body>
   
-  <div id = "bar"></div>
-  <div id = "slider"></div>
+  <div id = "tabs">
+    
+    <ul>
+      <li><a href = "#menu1">Menu1</a></li>
+      <li><a href = "#menu2">Menu2</a></li>
+      <li><a href = "#menu3">Menu3</a></li>
+    </ul>
+
+    <div id = "menu1">menu1</div>
+    <div id = "menu2">menu2</div>
+    <div id = "menu3">menu3</div>
+    
+  </div>
   
   <style>
     .ui-selected{
@@ -20,15 +31,10 @@
   
   <script>
     $(function() {
-    $('#bar').progressbar({
-    value:33
+    $('#tabs').tabs({
+    active:1
     });
-    $('#slider').slider({
-    slide:function(event, ui){
-    console.log(ui.value);
-    $('#bar').progressbar('option', 'value', ui.value);
-    }
-    });
+    
     });
   </script>
 </body>
