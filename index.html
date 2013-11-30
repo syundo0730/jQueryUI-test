@@ -9,7 +9,6 @@
 </head>
 <body>
   <div class = "box">box</div>
-  <div class = "target">target</div>
   <style>
     .box{
     width:50px;
@@ -26,16 +25,11 @@
   </style>
   <script>
     $(function() {
-    $('.box').draggable({
-    helper:'clone'
-    });
-    $('.target').droppable({
-    accept:'.box',
-    hoverClass:'hover',
-    tolerance:'fit', 
-    drop:function(event, ui){
-    ui.draggable.clone().appendTo(this);
-    console.log('dropped');
+    $('.box').draggable().resizable({
+    handles:'all',
+    aspectRatio:true,
+    stop:function(event, ui){
+    console.log(ui.size.height, ui.size.width);
     }
     });
     })
