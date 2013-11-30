@@ -8,28 +8,32 @@
 	<script src="js/jquery-ui-1.10.3.custom.js"></script>
 </head>
 <body>
-  <div class = "box">box</div>
+  <ul id = "selectable">
+     <li id = "item_1">item1</li>
+     <li id = "item_2">item2</li>
+     <li id = "item_3">item3</li>
+     <li id = "item_4">item4</li>
+  </ul>
+  
   <style>
-    .box{
-    width:50px;
-    height:50px;
-    background:green;
-    margin-bottom:20px;
+    .ui-selected{
+    background:red;
     }
-    .target{
-    width:100px;
-    height:100px;
-    background:pink;
-    }
-    .hover{background:red;}
   </style>
   <script>
     $(function() {
-    $('.box').draggable().resizable({
-    handles:'all',
-    aspectRatio:true,
-    stop:function(event, ui){
-    console.log(ui.size.height, ui.size.width);
+    var selected  =  new Array();
+    $('#selectable').selectable({
+    selected:function(event, ui){
+    if(selected.indexOf(ui.selected.id) == - 1){
+    selected.push(ui.selected.id);
+    }
+    console.log(selected);
+    },
+    unselected:function(event, ui){
+    var id = ui.unselected.id;
+    selected.splice(selected.indexOf(id), 1);
+    console.log(selected);
     }
     });
     })
