@@ -9,14 +9,7 @@
 </head>
 <body>
   
-  <button>click</button>
-  <input type = "checkbox" id = "check"><label for = "check">check</label>
-  
-  <div id = "set">
-  <input type = "radio" name = "radio" id = "radio1"><label for = "radio1">1</label>
-  <input type = "radio" name = "radio" id = "radio2"><label for = "radio2">2</label>
-  <input type = "radio" name = "radio" id = "radio3"><label for = "radio3">3</label>
-  </div>
+  <input type = "text" id = "datepicker"><label for = "check">check</label>
   
   <style>
     .ui-selected{
@@ -26,10 +19,12 @@
   
   <script>
     $(function() {
-    $('button').button();
-    $('#check').button();
-    $('input[type = radio]').button();
-    $('#set').buttonset();
+    $('#datepicker').datepicker({
+    dateformat:"yy-mm-dd",
+    numberOfMonths:3,
+    minDate: -2,
+    maxDate: "+1M"
+    });
     });
   </script>
 </body>
