@@ -8,24 +8,34 @@
 	<script src="js/jquery-ui-1.10.3.custom.js"></script>
 </head>
 <body>
-  <div id = "box">box
-  <div class = "handle">drang here</div>
-  <div class = "cancel">cant drang here</div>
-  </div>
+  <div class = "box">box</div>
+  <div class = "target">target</div>
   <style>
-    #box{
+    .box{
+    width:50px;
+    height:50px;
+    background:green;
+    margin-bottom:20px;
+    }
+    .target{
     width:100px;
     height:100px;
-    background:green;
+    background:pink;
     }
+    .hover{background:red;}
   </style>
   <script>
     $(function() {
-    $('#box').draggable({
-    opacity:0.5,
-    //cancel:'.cancel'
-    drag:function(event, ui){
-    console.log(ui.position.left);
+    $('.box').draggable({
+    helper:'clone'
+    });
+    $('.target').droppable({
+    accept:'.box',
+    hoverClass:'hover',
+    tolerance:'fit', 
+    drop:function(event, ui){
+    ui.draggable.clone().appendTo(this);
+    console.log('dropped');
     }
     });
     })
