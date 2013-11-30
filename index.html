@@ -8,7 +8,7 @@
 	<script src="js/jquery-ui-1.10.3.custom.js"></script>
 </head>
 <body>
-  <ul id = "selectable">
+  <ul id = "sortable">
      <li id = "item_1">item1</li>
      <li id = "item_2">item2</li>
      <li id = "item_3">item3</li>
@@ -22,21 +22,14 @@
   </style>
   <script>
     $(function() {
-    var selected  =  new Array();
-    $('#selectable').selectable({
-    selected:function(event, ui){
-    if(selected.indexOf(ui.selected.id) == - 1){
-    selected.push(ui.selected.id);
-    }
-    console.log(selected);
-    },
-    unselected:function(event, ui){
-    var id = ui.unselected.id;
-    selected.splice(selected.indexOf(id), 1);
-    console.log(selected);
+    $('#sortable').sortable({
+    cursor:'move',
+    opacity:0.5,
+    update:function(event, ui){
+    console.log($(this).sortable("serialize"));
     }
     });
-    })
+    });
   </script>
 </body>
 </html>
