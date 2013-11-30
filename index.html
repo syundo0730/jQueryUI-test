@@ -8,27 +8,31 @@
 	<script src="js/jquery-ui-1.10.3.custom.js"></script>
 </head>
 <body>
-  <ul id = "sortable">
-     <li id = "item_1">item1</li>
-     <li id = "item_2">item2</li>
-     <li id = "item_3">item3</li>
-     <li id = "item_4">item4</li>
-  </ul>
+  <div id = "accordion">
+
+    <h3><a herf = "">Title</a></h3>
+    <div>こんにちわ</div>
+    
+    <h3><a herf = "">Title</a></h3>
+    <div>こんにちわ</div>
+
+    <h3><a herf = "">Title</a></h3>
+    <div>こんにちわ</div>
+
+    <h3><a herf = "">Title</a></h3>
+    <div>こんにちわ</div>
+
+  </div>
   
   <style>
     .ui-selected{
     background:red;
     }
   </style>
+  
   <script>
     $(function() {
-    $('#sortable').sortable({
-    cursor:'move',
-    opacity:0.5,
-    update:function(event, ui){
-    console.log($(this).sortable("serialize"));
-    }
-    });
+    $('#accordion').accordion();
     });
   </script>
 </body>
