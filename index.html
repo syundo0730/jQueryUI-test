@@ -8,21 +8,7 @@
 	<script src="js/jquery-ui-1.10.3.custom.js"></script>
 </head>
 <body>
-  <div id = "accordion">
-
-    <h3><a herf = "">Title</a></h3>
-    <div>こんにちわ</div>
-    
-    <h3><a herf = "">Title</a></h3>
-    <div>こんにちわ</div>
-
-    <h3><a herf = "">Title</a></h3>
-    <div>こんにちわ</div>
-
-    <h3><a herf = "">Title</a></h3>
-    <div>こんにちわ</div>
-
-  </div>
+  <input type = "text" id = "langs">
   
   <style>
     .ui-selected{
@@ -32,7 +18,10 @@
   
   <script>
     $(function() {
-    $('#accordion').accordion();
+    var langs = ["ja", "en", "田口", "田中"];
+    $('#langs').autocomplete({
+    source:langs
+    });
     });
   </script>
 </body>
